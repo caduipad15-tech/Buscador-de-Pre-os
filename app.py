@@ -7,11 +7,11 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilização CSS limpa e com fontes chamativas
+# Estilização CSS limpa e sem erros (com a tag <style> correta)
 st.markdown("""
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
-
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
+
         .stApp { 
             background-color: #0b0f19 !important; 
             font-family: 'Poppins', sans-serif !important;
