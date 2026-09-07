@@ -525,3 +525,158 @@ with col_v2:
             <p style="font-size: 14px; color: #334155;">Defina quanto quer pagar e seja avisado por notificação ou WhatsApp assim que o preço cair para a sua meta.</p>
         </div>
     """, unsafe_allow_html=True)
+
+import streamlit as st
+
+# Configuração da página
+st.set_page_config(
+    page_title="Comparador de Preços Inteligente",
+    page_icon="💎",
+    layout="wide"
+)
+
+# Estilização CSS blindada (Força cores escuras no texto e arruma botões)
+st.markdown("""
+    <style>
+        /* Força fundo branco em toda a tela */
+        .stApp { background-color: #ffffff !important; }
+        
+        /* Força cor escura nos textos nativos do Streamlit */
+        h1, p, label, .stMarkdown { color: #0f172a !important; }
+        
+        /* Estilo dos Cartões em Ciano */
+        .meu-card {
+            background-color: #f0f9ff;
+            border: 2px solid #38bdf8;
+            border-radius: 16px;
+            padding: 24px;
+            color: #0f172a !important;
+            height: 100%;
+        }
+        
+        /* Cartão Premium em destaque */
+        .meu-card-premium {
+            background-color: #e0f2fe;
+            border: 2px solid #0284c7;
+            border-radius: 16px;
+            padding: 24px;
+            color: #0f172a !important;
+            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
+            height: 100%;
+        }
+
+        /* Títulos e preços blindados com !important para não ficarem brancos */
+        .meu-card h3, .meu-card-premium h3 { color: #0284c7 !important; margin: 0; font-size: 22px; font-weight: 800; }
+        .meu-card h2, .meu-card-premium h2 { color: #0f172a !important; font-size: 32px; font-weight: 800; margin: 10px 0; }
+        .mes { font-size: 14px; color: #475569 !important; font-weight: 500; }
+        
+        /* Lista de benefícios */
+        .meu-card ul, .meu-card-premium ul { list-style: none; padding: 0; margin-top: 20px; }
+        .meu-card li, .meu-card-premium li { 
+            color: #1e293b !important; 
+            font-size: 14px; 
+            font-weight: 500;
+            margin-bottom: 12px; 
+            border-bottom: 1px dashed #bae6fd; 
+            padding-bottom: 6px;
+        }
+        
+        /* Arruma os botões pretos feios */
+        div[data-testid="stButton"] button {
+            background-color: #0284c7 !important;
+            color: white !important;
+            border-radius: 8px !important;
+            font-weight: bold !important;
+            border: none !important;
+            padding: 10px !important;
+        }
+        div[data-testid="stButton"] button:hover {
+            background-color: #0369a1 !important;
+        }
+        
+        /* Centraliza o seletor Mensal/Anual */
+        div[role="radiogroup"] { justify-content: center; }
+    </style>
+""", unsafe_allow_html=True)
+
+# Cabeçalho
+st.markdown("<h1 style='text-align: center;'>Escolha seu plano ideal</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center; margin-bottom: 30px;'>Selecione o melhor plano para você e economize com segurança total.</p>", unsafe_allow_html=True)
+
+# Seletor
+tipo_cobranca = st.radio("Período", ["Mensal", "Anual (Economize)"], horizontal=True, label_visibility="collapsed")
+st.write("")
+st.write("")
+
+# Layout
+col1, col2, col3 = st.columns(3, gap="large")
+
+# --- BASIC ---
+with col1:
+    preco_basic = "R$ 9,99" if tipo_cobranca == "Mensal" else "R$ 6,99"
+    sub_basic = "7 dias grátis" if tipo_cobranca == "Mensal" else "R$ 83,88 / ano"
+    
+    st.markdown(f"""
+    <div class="meu-card">
+        <h3>Basic</h3>
+        <h2>{preco_basic} <span class="mes">/ mês</span></h2>
+        <p style="color:#0284c7 !important; font-size:13px; font-weight:bold;">{sub_basic}</p>
+        <ul>
+            <li>✓ Comparação de preços</li>
+            <li>✓ Preço final com frete</li>
+            <li>✓ Histórico de preços</li>
+            <li>✓ Análise básica de segurança</li>
+            <li>✓ 3 alertas de preço</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.button("Iniciar 7 dias grátis", key="btn1", use_container_width=True)
+
+# --- PLUS ---
+with col2:
+    preco_plus = "R$ 19,99" if tipo_cobranca == "Mensal" else "R$ 15,99"
+    sub_plus = "Mais popular" if tipo_cobranca == "Mensal" else "R$ 191,88 / ano"
+    
+    st.markdown(f"""
+    <div class="meu-card">
+        <h3>Plus</h3>
+        <h2>{preco_plus} <span class="mes">/ mês</span></h2>
+        <p style="color:#0284c7 !important; font-size:13px; font-weight:bold;">{sub_plus}</p>
+        <ul>
+            <li>✓ Comparação de preços</li>
+            <li>✓ Preço final com frete</li>
+            <li>✓ Histórico de preços</li>
+            <li>✓ Análise básica de segurança</li>
+            <li>✓ 10 alertas de preço</li>
+            <li>✓ 2 cupons semanais</li>
+            <li>✓ Notificação de queda de preços</li>
+            <li>✓ Índice de economia</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.button("Assinar Plus", key="btn2", use_container_width=True)
+
+# --- PREMIUM ---
+with col3:
+    preco_premium = "R$ 29,99" if tipo_cobranca == "Mensal" else "R$ 24,99"
+    sub_premium = "Acesso Total" if tipo_cobranca == "Mensal" else "R$ 299,88 / ano"
+    
+    st.markdown(f"""
+    <div class="meu-card-premium">
+        <h3>Premium ⭐</h3>
+        <h2>{preco_premium} <span class="mes">/ mês</span></h2>
+        <p style="color:#0284c7 !important; font-size:13px; font-weight:bold;">{sub_premium}</p>
+        <ul>
+            <li>✓ Comparação de preços</li>
+            <li>✓ Preço final com frete</li>
+            <li>✓ Histórico de preços</li>
+            <li>✓ Segurança avançada (IA)</li>
+            <li>✓ Alertas ilimitados</li>
+            <li>✓ 10 cupons mensais</li>
+            <li>✓ Notificações no WhatsApp</li>
+            <li>✓ Assistente IA Orçamentos</li>
+        </ul>
+    </div>
+    """, unsafe_allow_html=True)
+    st.button("Assinar Premium", key="btn3", use_container_width=True)
+
