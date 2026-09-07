@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilização CSS com as cores personalizadas solicitadas
+# Estilização CSS com contorno leve nas letras e todas as cores solicitadas
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
@@ -17,8 +17,10 @@ st.markdown("""
             font-family: 'Poppins', sans-serif !important;
         }
         
-        h1, h2, h3, h4, p, label, span { 
+        /* Contorno preto leve em absolutamente todas as letras do site */
+        h1, h2, h3, h4, p, label, span, li, div { 
             font-family: 'Poppins', sans-serif !important; 
+            -webkit-text-stroke: 0.4px #000000 !important;
         }
 
         .card-base {
