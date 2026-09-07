@@ -7,7 +7,7 @@ st.set_page_config(
     layout="wide"
 )
 
-# Estilização CSS com as novas cores ajustadas (Plus azul claro vivo, Basic verde, Premium dourado real)
+# Estilização CSS com as cores personalizadas solicitadas
 st.markdown("""
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap');
@@ -32,18 +32,18 @@ st.markdown("""
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
         }
 
-        /* 1. BASIC - Cor verde anterior do Plus */
+        /* 1. BASIC */
         .card-basic { border: 2px solid #22c55e; }
         .card-basic h3 { color: #22c55e !important; font-weight: 800; font-size: 26px; }
 
-        /* 2. PLUS - Azul claro bem vivo e brilhante (não fosco) */
+        /* 2. PLUS */
         .card-plus { 
             border: 2px solid #00f0ff; 
             box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
         }
         .card-plus h3 { color: #00f0ff !important; font-weight: 800; font-size: 26px; }
 
-        /* 3. PREMIUM - Dourado real com brilho refinado */
+        /* 3. PREMIUM */
         .card-premium {
             border: 2px solid #ffd700;
             box-shadow: 0 0 35px rgba(255, 215, 0, 0.45);
@@ -97,6 +97,7 @@ st.markdown("""
             border-radius: 16px;
             padding: 24px;
             margin-bottom: 15px;
+            height: 100%;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -189,6 +190,7 @@ with col3:
     """, unsafe_allow_html=True)
     st.button("Assinar Premium", key="btn_premium_unico", use_container_width=True)
 
+# --- SEÇÃO: COMO O APP FUNCIONA ---
 st.write("")
 st.write("")
 st.markdown("<h2 style='text-align: center; color: #ffffff; font-weight: 800; margin-top: 60px;'>Como o app funciona?</h2>", unsafe_allow_html=True)
@@ -196,23 +198,24 @@ st.markdown("<p style='text-align: center; color: #9ca3af; margin-bottom: 30px;'
 
 col_f1, col_f2, col_f3 = st.columns(3, gap="large")
 with col_f1:
-    st.markdown("""<div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 10px;">1. Busque o produto</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Digite o que você quer comprar. Nossa tecnologia varre a internet inteira em segundos.</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="section-box"><h4 style="color: #d97706; font-weight: 700; margin-bottom: 10px;">1. Busque o produto</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Digite o que você quer comprar. Nossa tecnologia varre a internet inteira em segundos.</p></div>""", unsafe_allow_html=True)
 with col_f2:
-    st.markdown("""<div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 10px;">2. Compare e Proteja-se</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Mostramos o preço real com frete, histórico de valores e alertamos se a loja é segura contra golpes.</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="section-box"><h4 style="color: #ef4444; font-weight: 700; margin-bottom: 10px;">2. Compare e Proteja-se</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Mostramos o preço real com frete, histórico de valores e alertamos se a loja é segura contra golpes.</p></div>""", unsafe_allow_html=True)
 with col_f3:
-    st.markdown("""<div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 10px;">3. Economize de verdade</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Ative alertas de preço, receba cupons ou use nossa IA para planejar orçamentos completos.</p></div>""", unsafe_allow_html=True)
+    st.markdown("""<div class="section-box"><h4 style="color: #10b981; font-weight: 700; margin-bottom: 10px;">3. Economize de verdade</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Ative alertas de preço, receba cupons ou use nossa IA para planejar orçamentos completos.</p></div>""", unsafe_allow_html=True)
 
+# --- SEÇÃO: POR QUE VOCÊ DEVERIA USAR ---
 st.markdown("<h2 style='text-align: center; color: #ffffff; font-weight: 800; margin-top: 60px;'>Por que você deveria usar?</h2>", unsafe_allow_html=True)
 st.markdown("<p style='text-align: center; color: #9ca3af; margin-bottom: 30px;'>Chega de perder tempo e dinheiro na internet:</p>", unsafe_allow_html=True)
 
 col_v1, col_v2 = st.columns(2, gap="large")
 with col_v1:
     st.markdown("""
-        <div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 8px;">🛡️ Zero risco de cair em golpes</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Nossa análise inteligente identifica sinais suspeitos em lojas virtuais antes de você colocar o cartão de crédito.</p></div>
-        <div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 8px;">💰 Economia real com frete incluso</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Não adianta o produto estar barato se o frete for absurdo. Calculamos o valor final para você não ter surpresas.</p></div>
+        <div class="section-box" style="margin-bottom: 15px;"><h4 style="color: #991b1b; font-weight: 700; margin-bottom: 8px;">🛡️ Zero risco de cair em golpes</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Nossa análise inteligente identifica sinais suspeitos em lojas virtuais antes de você colocar o cartão de crédito.</p></div>
+        <div class="section-box"><h4 style="color: #10b981; font-weight: 700; margin-bottom: 8px;">💰 Economia real com frete incluso</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Não adianta o produto estar barato se o frete for absurdo. Calculamos o valor final para você não ter surpresas.</p></div>
     """, unsafe_allow_html=True)
 with col_v2:
     st.markdown("""
-        <div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 8px;">🤖 Inteligência para grandes compras</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Quer mobiliar a casa inteira? Nossa IA monta o carrinho ideal respeitando exatamente o seu orçamento máximo.</p></div>
-        <div class="section-box"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 8px;">🔔 Avisos no momento certo</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Defina quanto quer pagar e seja avisado por notificação ou WhatsApp assim que o preço cair para a sua meta.</p></div>
+        <div class="section-box" style="margin-bottom: 15px;"><h4 style="color: #00f0ff; font-weight: 700; margin-bottom: 8px;">🤖 Inteligência para grandes compras</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Quer mobiliar a casa inteira? Nossa IA monta o carrinho ideal respeitando exatamente o seu orçamento máximo.</p></div>
+        <div class="section-box"><h4 style="color: #ca8a04; font-weight: 700; margin-bottom: 8px;">🔔 Avisos no momento certo</h4><p style="font-size: 13px; color: #9ca3af; margin:0;">Defina quanto quer pagar e seja avisado por notificação ou WhatsApp assim que o preço cair para a sua meta.</p></div>
     """, unsafe_allow_html=True)
